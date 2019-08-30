@@ -5,6 +5,7 @@ class Person extends Component{
 
   render(){
     console.log('[Person.js] rendering...');
+    console.log("....................");
   return (
     <div className={classes.Person}>
       <p onClick={this.props.click}>

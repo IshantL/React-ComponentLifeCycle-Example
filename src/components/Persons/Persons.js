@@ -3,6 +3,12 @@ import React,{Component} from 'react';
 import Person from './Person/Person';
 
 class Persons extends Component {
+
+  componentWillReceiveProps(props){
+    console.log("[Persons.js] componentWillRecieveProps");
+    console.log("Props",props);
+    console.log("....................");
+  }
   static getDerivedStatefromProps(props,state){
     console.log("[Persons.js] getDerivedStateFromProps");
     console.log("Props",props);
@@ -29,11 +35,12 @@ class Persons extends Component {
   
   componentDidUpdate(){
     console.log("[Persons.js] compoenentDidUpdate");
-
+    console.log("....................");
   }
 
   render(){
      console.log('[Persons.js] rendering...');
+     console.log("....................");
   return this.props.persons.map((person, index) => {
     return (
       <Person
