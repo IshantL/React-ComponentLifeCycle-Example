@@ -3,11 +3,12 @@ import React, {useEffect} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
-
+    //as this methods get execute every time component render to aviod that we can pass condition argument
     useEffect(()=>{
       console.log("[cockpit.js] useEffect..");
       console.log("........................");
-    })
+    },[props.persons]);
+    //if we want to use effect only once then we have to pass [], it works as componentDidUpdate
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
