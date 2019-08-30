@@ -7,8 +7,19 @@ const cockpit = ( props ) => {
     useEffect(()=>{
       console.log("[cockpit.js] useEffect..");
       console.log("........................");
+      //return is like componentWillUnmount
+      return () =>{
+        console.log('[cockpit.js] cleanup work in useEffect..')
+      }
     },[props.persons]);
     //if we want to use effect only once then we have to pass [], it works as componentDidUpdate
+    useEffect(()=>{
+      console.log("[cockpit.js] useEffect..");
+      console.log("........................");
+      return () =>{
+        console.log('[cockpit.js] cleanup work in useEffect 2nd one..')
+      }
+    });
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
