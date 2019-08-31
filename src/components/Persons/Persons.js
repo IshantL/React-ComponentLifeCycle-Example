@@ -22,7 +22,11 @@ class Persons extends Component {
     console.log("nextProps",nextProps);
     console.log("nextState",nextState);
     console.log("....................");
-    return true;
+    if(nextProps.persons !== this.props.persons){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   getSnapshotBeforeUpdate(prevProps,prevState){
