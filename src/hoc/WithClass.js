@@ -4,7 +4,8 @@ const withClass = (WrappedComponent, className) =>{
     debugger;
     return props =>(
         <div className={className}>
-            <WrappedComponent/>
+            <WrappedComponent {...props} />
+            {/* passing unknown props. It will destructure it.. */}
         </div>
     );
 };
