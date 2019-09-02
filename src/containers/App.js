@@ -19,7 +19,9 @@ class App extends Component {
       { id: 'asdf11', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
-    showPersons: false
+    showPersons: false,
+    showCockpit:true,
+    changeCounter:0
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -53,8 +55,12 @@ class App extends Component {
 
     const persons = [...this.state.persons];
     persons[personIndex] = person;
-
-    this.setState({ persons: persons });
+    // the better way and the recommended way of updating the state when you're depending on old 
+    // state and therefore, you'll see me use that throughout the course whenever we do depend on old state. 
+    // Super important to keep that in mind
+    this.setState( (prevState, props)=>{
+      return { persons: persons, changeCounter:prevState.changeCounter+1 }
+    });
   };
 
   deletePersonHandler = personIndex => {
