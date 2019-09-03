@@ -1,11 +1,14 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useContext} from 'react';
 import AuthContext from '../../context/auth-context';
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
 
   const toggleBtnRef = useRef(null);
-    //as this methods get execute every time component render to aviod that we can pass condition argument
+  const authContext = useContext(AuthContext);
+  
+  console.log(authContext.authenticated);
+  //as this methods get execute every time component render to aviod that we can pass condition argument
     useEffect(()=>{
       console.log("[cockpit.js] useEffect..");
       console.log("........................");
@@ -44,10 +47,10 @@ const cockpit = ( props ) => {
                 ref={toggleBtnRef}
                 className={btnClass}
                 onClick={props.clicked}>Toggle Persons</button>
-                <AuthContext.Consumer>
+                {/* <AuthContext.Consumer>
                   {(context) => <button onClick={context.login}>Log In</button>}
-                </AuthContext.Consumer>
-              
+                </AuthContext.Consumer> */}
+              <button onClick={authContext.login}>Log In</button>
         </div>
     );
 };
