@@ -56,7 +56,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
     // the better way and the recommended way of updating the state when you're depending on old 
-    // state and therefore, you'll see me use that throughout the course whenever we do depend on old state. 
+    // state and therefore, you'll see me use that throughout the example whenever we do depend on old state. 
     // Super important to keep that in mind
     this.setState( (prevState, props)=>{
       return { persons: persons, changeCounter:prevState.changeCounter+1 }
